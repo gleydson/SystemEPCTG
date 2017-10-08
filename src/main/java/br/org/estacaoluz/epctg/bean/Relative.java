@@ -9,16 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity(name = "students")
-public class Student {
+@Entity(name = "relatives")
+public class Relative {
 	
 	@Id
 	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(nullable = false, unique = true)
-	private String registry;
 	
 	@Column(nullable = false)
 	private String name;
@@ -26,6 +23,9 @@ public class Student {
 	@Column(nullable = false)
 	private Date dateOfBirth;
 	
+	@Column(nullable = false)
+	private String kinship;
+
 	@OneToOne
 	@Column(nullable = false)
 	private ContactInformation contactInformation;
@@ -33,9 +33,6 @@ public class Student {
 	@OneToOne
 	@Column(nullable = false)
 	private Address address;
-	
-	@Column(nullable = false)
-	private String photo;
 
 	public Long getId() {
 		return id;
@@ -43,14 +40,6 @@ public class Student {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getRegistry() {
-		return registry;
-	}
-
-	public void setRegistry(String registry) {
-		this.registry = registry;
 	}
 
 	public String getName() {
@@ -68,6 +57,14 @@ public class Student {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+	
+	public String getKinship() {
+		return kinship;
+	}
+
+	public void setKinship(String kinship) {
+		this.kinship = kinship;
+	}
 
 	public ContactInformation getContactInformation() {
 		return contactInformation;
@@ -83,14 +80,6 @@ public class Student {
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-	
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 	
 }

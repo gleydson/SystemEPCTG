@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity(name = "teachers")
 public class Teacher {
@@ -22,9 +23,11 @@ public class Teacher {
 	@Column(nullable = false)
 	private Date dateOfBirth;
 	
+	@OneToOne
 	@Column(nullable = false)
 	private ContactInformation contactInformation;
 	
+	@OneToOne
 	@Column(nullable = false)
 	private Address address;
 	

@@ -5,6 +5,24 @@ import java.util.Map;
 
 public class Email {
 	
+	private String senderName;
+	public String getSenderName() {
+		return senderName;
+	}
+
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+
+	public String getSenderEmail() {
+		return senderEmail;
+	}
+
+	public void setSenderEmail(String senderEmail) {
+		this.senderEmail = senderEmail;
+	}
+
+	private String senderEmail;
 	private String recipientName;
 	private Map<String, String> recipientAddresses;
 	private String bodyMessage;

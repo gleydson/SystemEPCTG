@@ -1,4 +1,4 @@
-package br.org.estacaoluz.epctg.component;
+package br.org.estacaoluz.epctg.util;
 
 import java.io.IOException;
 
@@ -7,11 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-@Component
-public class CorsComponent extends OncePerRequestFilter {
+@Configuration
+public class CorsUtil extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
