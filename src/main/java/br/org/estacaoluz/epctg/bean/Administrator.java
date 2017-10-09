@@ -2,12 +2,13 @@ package br.org.estacaoluz.epctg.bean;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,21 +18,22 @@ public class Administrator implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
-	@Column(nullable = false, unique = true)
+	@NotNull
+	@NotEmpty
 	private String username;
 	
-	@Column(nullable = false)
+	@NotNull
+	@NotEmpty
 	private String password;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

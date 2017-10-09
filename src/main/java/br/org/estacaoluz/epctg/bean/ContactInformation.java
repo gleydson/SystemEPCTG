@@ -1,26 +1,25 @@
 package br.org.estacaoluz.epctg.bean;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "contactInformation")
 public class ContactInformation {
 	
 	@Id
-	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String phoneNumberOne;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String phoneNumberTwo;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String email;
 	
 	public Long getId() {

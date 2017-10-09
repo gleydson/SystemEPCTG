@@ -1,38 +1,45 @@
 package br.org.estacaoluz.epctg.bean;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "teachers")
 public class Teacher {
 
 	@Id
-	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String name;
 	
-	@Column(nullable = false)
+	@NotNull
 	private Date dateOfBirth;
 	
+	@NotNull
+	private String photo;
+	
 	@OneToOne
-	@Column(nullable = false)
+	@NotNull
 	private ContactInformation contactInformation;
 	
 	@OneToOne
-	@Column(nullable = false)
+	@NotNull
 	private Address address;
 	
-	@Column(nullable = false)
-	private String photo;
+	@NotNull
+	@ManyToMany
+	@JoinTable(name = "teachers_and_classes")
+	private List<SchoolClass> listClasses;
 
 	public Long getId() {
 		return id;
@@ -58,6 +65,14 @@ public class Teacher {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	public ContactInformation getContactInformation() {
 		return contactInformation;
 	}
@@ -74,14 +89,12 @@ public class Teacher {
 		this.address = address;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public List<SchoolClass> getListClasses() {
+		return listClasses;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setListClasses(List<SchoolClass> listClasses) {
+		this.listClasses = listClasses;
 	}
-	
-	
-	
+		
 }

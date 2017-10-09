@@ -17,7 +17,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.org.estacaoluz.epctg.bean.AccountCredentials;
+import br.org.estacaoluz.epctg.bean.Administrator;
 
 public class LoginFilterConfigJwt extends AbstractAuthenticationProcessingFilter {
 
@@ -30,8 +30,8 @@ public class LoginFilterConfigJwt extends AbstractAuthenticationProcessingFilter
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
 		
-		AccountCredentials credentials = new ObjectMapper()
-				.readValue(request.getInputStream(), AccountCredentials.class);
+		Administrator credentials = new ObjectMapper()
+				.readValue(request.getInputStream(), Administrator.class);
 		
 		return getAuthenticationManager().authenticate (
 				new UsernamePasswordAuthenticationToken (

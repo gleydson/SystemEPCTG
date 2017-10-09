@@ -6,11 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import br.org.estacaoluz.epctg.bean.Relative;
 import br.org.estacaoluz.epctg.repository.RelativeRepository;
 import br.org.estacaoluz.epctg.service.RelativeService;
 
+@Service
 public class RelativeServiceImpl implements RelativeService {
 
 	@Autowired

@@ -15,31 +15,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.org.estacaoluz.epctg.bean.Administrator;
-import br.org.estacaoluz.epctg.service.AdministratorService;
+import br.org.estacaoluz.epctg.bean.Address;
+import br.org.estacaoluz.epctg.service.AddressService;
 
 @RestController
 @Transactional
-@RequestMapping("/administrator")
+@RequestMapping("/address")
 @CrossOrigin(origins = "*")
-public class AdministratorController {
+public class AddressController {
 
 	@Autowired
-	private AdministratorService service;
+	private AddressService service;
 	
 	@PostMapping
-	public ResponseEntity<Administrator> create(@RequestBody Administrator administrator) {
-		return this.service.create(administrator);
+	public ResponseEntity<Address> create(@RequestBody Address address) {
+		return this.service.create(address);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Administrator> read(@PathVariable Long id){
+	public ResponseEntity<Address> read(@PathVariable Long id){
 		return this.service.read(id);
 	}
 	
 	@PutMapping
-	public ResponseEntity<Administrator> update(@RequestBody Administrator administrator){
-		return this.service.update(administrator);
+	public ResponseEntity<Address> update(@RequestBody Address address){
+		return this.service.update(address);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -48,7 +48,7 @@ public class AdministratorController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Administrator>> getAll(){
+	public ResponseEntity<List<Address>> getAll(){
 		return this.service.getAll();
 	}
 	

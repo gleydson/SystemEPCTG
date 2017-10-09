@@ -15,31 +15,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.org.estacaoluz.epctg.bean.Administrator;
-import br.org.estacaoluz.epctg.service.AdministratorService;
+import br.org.estacaoluz.epctg.bean.Discipline;
+import br.org.estacaoluz.epctg.service.DisciplineService;
 
 @RestController
 @Transactional
-@RequestMapping("/administrator")
+@RequestMapping("/discipline")
 @CrossOrigin(origins = "*")
-public class AdministratorController {
+public class DisciplineController {
 
 	@Autowired
-	private AdministratorService service;
+	private DisciplineService service;
 	
 	@PostMapping
-	public ResponseEntity<Administrator> create(@RequestBody Administrator administrator) {
-		return this.service.create(administrator);
+	public ResponseEntity<Discipline> create(@RequestBody Discipline discipline) {
+		return this.service.create(discipline);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Administrator> read(@PathVariable Long id){
+	public ResponseEntity<Discipline> read(@PathVariable Long id){
 		return this.service.read(id);
 	}
 	
 	@PutMapping
-	public ResponseEntity<Administrator> update(@RequestBody Administrator administrator){
-		return this.service.update(administrator);
+	public ResponseEntity<Discipline> update(@RequestBody Discipline discipline){
+		return this.service.update(discipline);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -48,7 +48,7 @@ public class AdministratorController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Administrator>> getAll(){
+	public ResponseEntity<List<Discipline>> getAll(){
 		return this.service.getAll();
 	}
 	

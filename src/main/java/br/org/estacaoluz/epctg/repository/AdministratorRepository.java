@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.org.estacaoluz.epctg.bean.Administrator;
 
 @Repository
-public interface AdministratorRepository extends JpaRepository<Administrator, Long> { }
+public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
+	public Administrator findByUsername(String username);
+}

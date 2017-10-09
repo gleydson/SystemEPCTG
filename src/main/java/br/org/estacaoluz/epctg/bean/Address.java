@@ -1,35 +1,34 @@
 package br.org.estacaoluz.epctg.bean;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "addresses")
 public class Address {
 	
 	@Id
-	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String street;
 	
-	@Column(nullable = false)
+	@NotNull
 	private int houseNumber;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String complement;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String district;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String city;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String state;
 	
 	public Long getId() {

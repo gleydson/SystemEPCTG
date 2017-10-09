@@ -2,36 +2,35 @@ package br.org.estacaoluz.epctg.bean;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "relatives")
 public class Relative {
 	
 	@Id
-	@Column(nullable = false, updatable = false, insertable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String name;
 	
-	@Column(nullable = false)
+	@NotNull
 	private Date dateOfBirth;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String kinship;
 
 	@OneToOne
-	@Column(nullable = false)
+	@NotNull
 	private ContactInformation contactInformation;
 	
 	@OneToOne
-	@Column(nullable = false)
+	@NotNull
 	private Address address;
 
 	public Long getId() {
