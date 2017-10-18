@@ -21,4 +21,5 @@ public class ConstantsUtil {
 	
 	//Exceptions
 	public static final String ADMINISTRATOR_NOT_FOUND_EXCEPTION = "Administrador não encontrado";
+	
 }

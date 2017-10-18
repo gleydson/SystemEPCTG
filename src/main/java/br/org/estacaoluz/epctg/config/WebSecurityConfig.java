@@ -1,8 +1,6 @@
 package br.org.estacaoluz.epctg.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,30 +22,32 @@ import br.org.estacaoluz.epctg.config.jwt.LoginFilterConfigJwt;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	@Qualifier("userDetailsService")
 	private UserDetailsService userDetailsService;
-	
-	@Bean
-	public UserDetailsService userDetailsService() {
-	    return super.userDetailsService();
-	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		String login = "/login";
-		http.csrf().disable()
-			.authorizeRequests()
+		String index = "/";
+		
+		http.csrf().disable();
+		
+		http.authorizeRequests()
+			//.antMatchers("/js/**", "/css/**", "/img/**").permitAll()
 			.antMatchers(HttpMethod.POST, login).permitAll()
-			.anyRequest().authenticated()
-			.and()
-			.addFilterBefore(new LoginFilterConfigJwt(login, authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-			.addFilterBefore(new AuthenticationFilterConfigJwt(), UsernamePasswordAuthenticationFilter.class);
+			.antMatchers(HttpMethod.GET, index).permitAll()
+			.anyRequest().authenticated();
+			
+		http.addFilterBefore(new LoginFilterConfigJwt(login,
+				authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+		
+		http.addFilterBefore(new AuthenticationFilterConfigJwt(),
+				UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("user").password("123").roles("ADMIN");
-		//auth.userDetailsService(userDetailsService);		
+		auth.userDetailsService(userDetailsService);		
 	}
 	
 }
