@@ -13,9 +13,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class TokenAuthenticationConfigJwt {
-	// EXPIRATION_TIME = 10 days
-	static final long EXPIRATION_TIME = 860_000_000;
-	static final String SECRET = "MySecret";
+	// 1 dia em millisegundos
+	static final long EXPIRATION_TIME = 86_400_000;
+	static final String SECRET = "MySecretWord";
 	static final String TOKEN_PREFIX = "Bearer";
 	static final String HEADER_STRING = "Authorization";
 	
