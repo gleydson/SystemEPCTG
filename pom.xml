@@ -6,7 +6,6 @@
 	<groupId>br.org.estacaoluz.epctg</groupId>
 	<artifactId>SystemEPCTG</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<name>SystemEPCTG</name>
 	<description>School management system of the Professor Clodomir Teófilo Girão School</description>

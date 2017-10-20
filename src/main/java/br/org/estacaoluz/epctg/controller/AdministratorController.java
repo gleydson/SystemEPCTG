@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.ADMINISTRATOR;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import br.org.estacaoluz.epctg.service.AdministratorService;
 
 @RestController
 @Transactional
-@RequestMapping("/administrator")
+@RequestMapping(API + ADMINISTRATOR)
 @CrossOrigin(origins = "*")
 public class AdministratorController {
 

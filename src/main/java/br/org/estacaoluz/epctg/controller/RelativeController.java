@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.RELATIVE;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import br.org.estacaoluz.epctg.service.RelativeService;
 
 @RestController
 @Transactional
-@RequestMapping("/relative")
+@RequestMapping(API + RELATIVE)
 @CrossOrigin(origins = "*")
 public class RelativeController {
 

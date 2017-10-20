@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.SCHOOL_YEAR;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import br.org.estacaoluz.epctg.service.SchoolYearService;
 
 @RestController
 @Transactional
-@RequestMapping("/SchoolYear")
+@RequestMapping(API + SCHOOL_YEAR)
 @CrossOrigin(origins = "*")
 public class SchoolYearController {
 

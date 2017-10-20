@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.TEACHER;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import br.org.estacaoluz.epctg.service.TeacherService;
 
 @RestController
 @Transactional
-@RequestMapping("/teacher")
+@RequestMapping(API + TEACHER)
 @CrossOrigin(origins = "*")
 public class TeacherController {
 

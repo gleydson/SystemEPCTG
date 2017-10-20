@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.ANNUAL_NOTES;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import br.org.estacaoluz.epctg.service.AnnualNotesService;
 
 @RestController
 @Transactional
-@RequestMapping("/annualNotes")
+@RequestMapping(API + ANNUAL_NOTES)
 @CrossOrigin(origins = "*")
 public class AnnualNotesController {
 	

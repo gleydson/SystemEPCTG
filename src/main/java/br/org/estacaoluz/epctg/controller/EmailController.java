@@ -1,5 +1,8 @@
 package br.org.estacaoluz.epctg.controller;
 
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.API;
+import static br.org.estacaoluz.epctg.util.ConstantsUtil.EMAIL;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +17,7 @@ import br.org.estacaoluz.epctg.service.EmailService;
 
 @RestController
 @Transactional
-@RequestMapping("/email")
+@RequestMapping(API + EMAIL)
 @CrossOrigin(origins = "*")
 public class EmailController {
 
