@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		String login = "/login";
+		String login = "api/login";
 		String index = "/";
 		
 		http.csrf().disable();
