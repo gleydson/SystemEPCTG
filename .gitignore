@@ -2,7 +2,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
-key
+.key
 
 ### STS ###
 .apt_generated
@@ -26,7 +26,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-src/main/resources/application.properties
 =======
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
