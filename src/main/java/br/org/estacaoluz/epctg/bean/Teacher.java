@@ -25,9 +25,6 @@ public class Teacher {
 	@NotNull
 	private Date dateOfBirth;
 	
-	@NotNull
-	private String photo;
-	
 	@OneToOne
 	@NotNull
 	private ContactInformation contactInformation;
@@ -63,14 +60,6 @@ public class Teacher {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 
 	public ContactInformation getContactInformation() {
