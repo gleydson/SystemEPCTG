@@ -38,8 +38,6 @@ public class Student {
 	@ManyToOne
 	private SchoolClass schoolClass;
 	
-	private String photo;
-
 	public Long getId() {
 		return id;
 	}
@@ -94,14 +92,6 @@ public class Student {
 
 	public void setSchoolClass(SchoolClass schoolClass) {
 		this.schoolClass = schoolClass;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 	
 }
