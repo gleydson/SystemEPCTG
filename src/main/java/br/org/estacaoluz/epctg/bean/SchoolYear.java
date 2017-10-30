@@ -22,7 +22,6 @@ public class SchoolYear {
 	@NotNull
 	private String status;
 
-	@NotNull
 	@OneToMany
 	private List<SchoolClass> listSchoolClasses;
 

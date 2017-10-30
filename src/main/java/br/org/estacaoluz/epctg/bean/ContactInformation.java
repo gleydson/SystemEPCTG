@@ -19,7 +19,6 @@ public class ContactInformation {
 	@NotNull
 	private String phoneNumberTwo;
 	
-	@NotNull
 	private String email;
 	
 	public Long getId() {

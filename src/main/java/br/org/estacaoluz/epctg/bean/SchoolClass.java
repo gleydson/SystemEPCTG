@@ -22,7 +22,6 @@ public class SchoolClass {
 	@NotNull
 	private int numberOfStudents;
 	
-	@NotNull
 	@OneToMany
 	private List<Discipline> listDisciplines;
 	

@@ -12,6 +12,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity(name = "teachers")
 public class Teacher {
 
@@ -23,20 +27,16 @@ public class Teacher {
 	private String name;
 	
 	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
-	@NotNull
-	private String photo;
-	
 	@OneToOne
-	@NotNull
 	private ContactInformation contactInformation;
 	
 	@OneToOne
-	@NotNull
 	private Address address;
 	
-	@NotNull
 	@ManyToMany
 	@JoinTable(name = "teachers_and_classes")
 	private List<SchoolClass> listClasses;
@@ -63,14 +63,6 @@ public class Teacher {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 
 	public ContactInformation getContactInformation() {

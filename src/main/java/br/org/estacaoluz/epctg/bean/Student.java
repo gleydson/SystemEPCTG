@@ -10,6 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity(name = "students")
 public class Student {
 	
@@ -24,6 +28,8 @@ public class Student {
 	private String name;
 	
 	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
 	@NotNull
@@ -37,8 +43,6 @@ public class Student {
 	@NotNull
 	@ManyToOne
 	private SchoolClass schoolClass;
-	
-	private String photo;
 
 	public Long getId() {
 		return id;
@@ -94,14 +98,6 @@ public class Student {
 
 	public void setSchoolClass(SchoolClass schoolClass) {
 		this.schoolClass = schoolClass;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 	
 }

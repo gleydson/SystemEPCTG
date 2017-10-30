@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity(name = "relatives")
 public class Relative {
 	
@@ -20,17 +24,17 @@ public class Relative {
 	private String name;
 	
 	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
 	@NotNull
 	private String kinship;
 
 	@OneToOne
-	@NotNull
 	private ContactInformation contactInformation;
 	
 	@OneToOne
-	@NotNull
 	private Address address;
 
 	public Long getId() {
