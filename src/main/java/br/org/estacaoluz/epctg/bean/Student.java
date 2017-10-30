@@ -32,15 +32,12 @@ public class Student {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
-	@NotNull
 	@OneToOne
 	private ContactInformation contactInformation;
 	
-	@NotNull
 	@OneToOne
 	private Address address;
 	
-	@NotNull
 	@ManyToOne
 	private SchoolClass schoolClass;
 
